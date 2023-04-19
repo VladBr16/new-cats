@@ -1,0 +1,68 @@
+/* h1{
+    font: size 20px;
+    margin:10px;
+    padding:10px;
+} */
+.delete__popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-overlay-color);
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+    transition-property: opacity, background-color, visibility;
+}
+._active {
+    opacity: 1;
+    visibility: visible;
+    transition: linear 0.2s, linear 0.2s;
+    transition-property: opacity, background-color;
+    
+}
+
+.delete__container {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 600px;
+    background-color: var(--form-color);
+    padding: 30px;
+    position: relative;
+    border-radius: 2rem;
+}
+/* .delete-btn-container{
+    display:flex;
+    flex-direction: row;
+    gap:20px;
+    margin:20px;
+    
+} */
+.delete_close{
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    border-radius: 25px;
+}
+
+.delete_close_external {
+    background-color: transparent;
+    color: var(--bg-main-color);
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+}
+.delete__btn{
+    font-size: 20px;
+    width: 6rem;
+}
+/* .fa-sharp{
+    margin: 20px;
+} */
+
+

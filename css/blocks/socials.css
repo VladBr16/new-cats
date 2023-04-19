@@ -1,0 +1,17 @@
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.socials__links{
+    color: var(--bg-secondary-color);
+    font-size: 30px;
+    
+}
+.socials__icon{
+    font-size: 30px;
+}
+.socials__icon:hover{
+    background-color: gold;
+    border-radius: 30px;
+}

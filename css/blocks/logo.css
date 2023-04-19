@@ -1,0 +1,10 @@
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+#facat:hover{
+    background-color: gold;
+    border-radius: 30px;
+}

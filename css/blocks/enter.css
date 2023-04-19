@@ -1,0 +1,143 @@
+/* enter, enter-popup-form (LOGIN)
+Форма авторизации и его стилистика */
+.enter__popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-overlay-color);
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+    transition-property: opacity, background-color, visibility;
+}
+
+.enter_active {
+    opacity: 1;
+    visibility: visible;
+    transition: linear 0.2s, linear 0.2s;
+    transition-property: opacity, background-color;
+    
+}
+
+.enter__container {
+    max-width: 600px;
+    background-color: var(--form-color);
+    padding: 20px;
+    position: relative;
+    border-radius: 2rem;
+}
+
+.enter-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+}
+
+.enter-popup-close_external {
+    background-color: transparent;
+    color: var(--bg-main-color);
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+}
+.enter__image {
+    grid-row: span 4;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.enter-image{
+    background-image: url("/images/acc.jpg") ;
+    border-radius: 90px;
+    box-shadow: 0 0 2px 0 #0004;
+    
+}
+
+
+/* .enter__img {
+    
+} */
+/* .enter__photo {
+    
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 #0004;
+    background: url("/images/account.jpg") no-repeat center / cover;
+} */
+
+
+/* .enter__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-overlay-color);
+    visibility: hidden;
+    opacity: 0;
+    transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+    transition-property: opacity, background-color, visibility;
+
+    /* width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(224, 218, 213);
+    box-shadow: 0 0 2px 0 #0004;
+    position: relative;
+    display: none; */
+/* }
+
+.enter__active{
+    opacity: 1;
+    visibility: visible;
+    transition: linear 0.2s, linear 0.2s;
+    transition-property: opacity, background-color;
+}
+
+.enter-img {
+    grid-row-end: span 7;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 #0004;
+    background: url("/images/account.jpg") no-repeat center / cover;
+}
+.enter__close_external {
+    background-color: transparent;
+    color: var(--bg-main-color);
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+} */
+
+/* .enter {
+    padding: 10px;
+}
+
+
+
+/* .popup_active {
+    opacity: 1;
+    visibility: visible;
+    transition: linear 0.2s, linear 0.2s;
+    transition-property: opacity, background-color;
+    
+} */
+
+
+/* 
+#btnId:hover {
+    color: #000;
+    background-color: rgb(218, 117, 58);
+}
+
+.enter-popup-form h2 {
+    margin: 0 0 20px;
+    text-align: center;
+}   */ 
