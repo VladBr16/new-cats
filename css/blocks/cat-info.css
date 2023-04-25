@@ -89,7 +89,7 @@
 .edit-cat:hover{
     background-color:#a56317;
     border-radius: 30px;
-    padding: 3px;
+    /* padding: 3px; */
     cursor: pointer;
 }
 

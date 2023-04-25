@@ -2,8 +2,8 @@
 const loginForm = document.getElementById("login_form");
 const login = loginForm.querySelector("input");
 const password = loginForm.querySelector("input + input")
-const btntype = loginForm.querySelector("button")
-const closeEnter = document.querySelector("#log-in");
+// const btntype = loginForm.querySelector("button")
+// const closeEnter = document.querySelector("#log-in");
 const closeLogin = document.querySelector(".close-enter")
 
 if (localStorage.length != 0) {

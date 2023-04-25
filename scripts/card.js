@@ -50,12 +50,12 @@ class Card {
             const popupEditCat = new PopupEditCat('cats-info-template')
             popupEditCat.open()
             {
-                // api.updateCatById(this._data.id).then(() => {
-                //     e.preventDefault();
-                //     const elem2 = document.getElementById(`btn-${this._data.id}`);
-                //     console.log({ elem2 });
-                //     elem.parentElement.put();
-                //     })
+                api.updateCatById(this._data.id).then(() => {
+                    e.preventDefault();
+                    const elem2 = document.getElementById("change-info");
+                    console.log({ elem2 }), "change-info";
+                    elem2.parentElement.put();
+                    })
             }
             popupEditCat.setEventListener();
             console.log("click")
