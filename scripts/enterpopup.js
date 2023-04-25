@@ -1,4 +1,5 @@
 // попап авторизации
+// export 
 class EnterPopup {
   constructor(className2) {
     this.className2 = className2;

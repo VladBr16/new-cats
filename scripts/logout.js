@@ -1,5 +1,6 @@
 // попап успешной авторизации
-class Logout{
+// export
+ class Logout{
     constructor(className4) {
         this.className4 = className4;
         this.logOut = document.querySelector(`.${className4}`);

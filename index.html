@@ -71,6 +71,21 @@
             </form>
         </div>
     </div>
+    
+
+    
+    <div class = "popup popup-cat-info">
+        <div class ="popup__container">
+            <button class = "popup__close btn popup__close_external"><i class ="fa-solid fa-xmark"></i></button>
+            <div class="popup__content"></div>
+        </div>
+    </div>
+    <div class = "popup popup-image">
+        <div class ="popup__container">
+            <button class = "popup__close btn popup__close_external"><i class ="fa-solid fa-xmark"></i></button>
+            <img src ="#" class ="popup__image" alt ="picture">
+        </div>
+    </div>
     <!-- форма авторизации(попап-форма) --> 
     <div class ="enter__popup open-enter">
         <div class ="enter__container open-enter">
@@ -92,14 +107,6 @@
             <h3> Добро пожаловать !!</h3>
         </div>
     </div> 
-    <!-- <div class ="enter__popup close-enter">
-        <div class ="close__container close-enter">
-            <div class= "form" id="enter-form-user">
-            <div class ="enter-popup-close btn"><i class="fa-solid fa-xmark"></i></div>
-            <h2><i class="fa-sharp fa-solid fa-trash fa-2x""></i>General Kenoby</h2>
-            </div>
-        </div>
-    </div> -->
     <!-- Форма удаления карточки -->
     <div class ="delete__popup delete-card">
         <div class ="delete__container">
@@ -114,26 +121,55 @@
         </div>
     </div>
 </body> 
+
 <!-- template cards -->
 <template id = "card-template">
     <div class="card">
-        <img src="./images/cat1.jpg" alt="Image" class="card__image" >
+        <img src="#" alt="Image" class="card__image" >
         <a href="#" class="card__link"><h3 class = "card__name"> Бобик</h3></a>
         <button class="card__like" aria-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
         <button class="card__delete" id ="card_delete" aria-label="delete"><i class="fa solid fa-trash fa-2x"></i>
+        <button id ="edit" class="cat-info__edited"><i class="fa-regular fa-pen-to-square fa-2x"></i></button>
+    </div>
+</template>
+    <!-- попап card-info -->
+    <div class="cats-info__popup cats-info-template">
+        <div class="cat-info__container">
+            <form class="form-edit-cat">
+                <button class="edit-cat"><i class="fa-regular fa-pen-to-square"></i>Редактировать</button>
+            <!-- <button class="cat-info__saved cat-info__saved_hidden"><i class="fa-regular fa-pen-to-square"></i>Сохранить</button>
+            <button class="cat-info__deleted"><i class="fa-solid fa-trash"></i>Удалить</button> -->
+                <img src="#" class="cat-info__image" loading="lazy">
+                <span class="cat-info__id"></span>
+                <div class="cat-info__title">
+                    <h2 class="cat-info__name"></h2>
+                    <button class="cat-info__favourite"><i class="fa-solid fa-heart fa-2x"></i></button>
+                </div>
+                <span class="cat-info__rate"></span>
+                <div class="cat-info__age">
+                    <span class="cat-info__age-val"></span>
+                    <span class="cat-info__age-text"></span>
+                </div>
+                <p class="cat-info__desc"> Описание</p>
+                
+            </form>
         </div>
-    </template>
+    </div>
     <!-- scripts -->
     <script src = "scripts/api.js" defer></script>
     <script src = "scripts/cats.js" defer></script>
     <script src = "scripts/utilis.js" defer></script>
-    <script src = "scripts/card.js" defer></script>
     <script src = "scripts/popup.js" defer></script>
     <script src = "scripts/enterpopup.js" defer></script>
     <script src = "scripts/deleteButton.js" defer></script>
+    <script src = "scripts/card.js" defer></script>
     <script src = "scripts/login.js" defer></script>
     <script src = "scripts/logout.js" defer></script>
+    <script src = "scripts/popup-edit-cat.js" defer></script>
+    <!-- <script src ="scripts/popup-image.js" defer></script> -->
+    <!-- <script src = "scripts/cats-info.js" defer></script> -->
     <script src = "scripts/index.js" defer></script>
+    
     
 </html>
             <!-- <form>

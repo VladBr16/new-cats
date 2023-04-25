@@ -1,3 +1,4 @@
+// export 
 class Popup {
     constructor(className) {
         this.className = className;
@@ -15,12 +16,21 @@ class Popup {
         open() {
             this.popup.classList.add('popup_active');
             document.addEventListener('keyup', this._handleEscapeUp)
+            // const imagePopup = this.popup.querySelector('.popup__image');
+            // imagePopup.src = className.src;
+            // this.className.open()
     }
 
         close() {
             this.popup.classList.remove('popup_active');
             document.removeEventListener("keyup", this._handleEscapeUp)
     }
+
+    // setContent(contentNode) {
+    // const containerContent = this.popup.querySelector('.popup__content');
+    // containerContent.innerHTML = '';
+    // containerContent.append(contentNode);
+    // }
 // закрывает при нажатии вне поля попап (слушает событие "клик")
     setEventListener() {
         this.popup.addEventListener("click", (event) =>{

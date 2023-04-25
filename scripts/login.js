@@ -18,15 +18,15 @@ loginForm.addEventListener("submit", ()=> {
             // alert('General Kenobi');
         const closeEnterPop = new Logout("close-enter");
             closeEnterPop.open()
-            const timerId = setTimeout(() => {
+            enterpopup.close()
+            setTimeout(() => {
                 closeEnterPop.close()
-            },5000);
-            clearTimeout(timerId) 
+            },2000);
             closeEnterPop.setEventListener()
             document.cookie = 'login = hello'
             document.cookie = 'password = there'
         }else if(login.value !=="hello" || password.value !=="there"){
-            alert('you are imposter! Go away')
+            alert('Неверный Логин/Пароль, используйте подсказку')
             localStorage.clear()
         }
     })
