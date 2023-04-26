@@ -6,15 +6,9 @@
 // popup
 const btnEnter = document.querySelector("#enter")
 const enterpopup = new EnterPopup2("open-enter")
-// const loginForm = document.getElementById("login_form");
-// const login = loginForm.querySelector("input");
-// const password = loginForm.querySelector("input + input")
-// const loginForm = document.getElementById("login_form");
-// const login = loginForm.querySelector("input");
-// const password = loginForm.querySelector("input + input")
-// const btntype = loginForm.querySelector("button")
-// const closeEnter = document.querySelector("#log-in");
-// const closeLogin = document.querySelector(".close-enter")
+
+const cardsContainer = document.querySelector(".cards");
+
 
 
 enterpopup.setEventListener();
@@ -29,10 +23,19 @@ const buttonEnter = loginForm2.querySelector("button")
 const closeLogin = document.querySelector(".close-enter")
 
 
+cats.forEach((cat) =>{
+    const catCardInstance = new DefaultCard(cat,"#card-template");
+    const newCardElement = catCardInstance.getElement();
+    cardsContainer.append(newCardElement);
+})
+
 if (localStorage.length != 0) {
     login.value = localStorage.login 
     password.value = localStorage.password
 }
+
+
+
 
 // buttonEnter.addEventListener("buttonlog", ()=>{
 //     localStorage.login = login.value;
@@ -46,6 +49,8 @@ if (localStorage.length != 0) {
 //     buttonEnter.setEventListener()
 // })
     
+
+
 // РАБОЧАЯ ВЕРСИЯ НЕ ТРОГАТЬ!
 document.getElementById("buttonlog").addEventListener("click", ()=>{
     localStorage.login = login.value;
@@ -56,7 +61,7 @@ document.getElementById("buttonlog").addEventListener("click", ()=>{
             enterpopup.close()
             setTimeout(() => {
                 closeentPop.close()
-                    },5000);
+                    },150000);
             closeentPop.setEventListener() 
     }
     else if(login.value !=="hello" || password.value !=="there"){

@@ -94,7 +94,7 @@ function handleCatImage(data){
 
 function checkLocalStorage() {
     const localData = JSON.parse(localStorage.getItem('cats'));
-    // console.log({ localData });
+    console.log({ localData });
     const getTimeExpires = localStorage.getItem('catsRefresh');
     if (localData && localData.length && new Date() < new Date(getTimeExpires)) {
         localData.forEach((data) => {
@@ -178,21 +178,7 @@ checkLocalStorage();
 
 
 
-//sb-heroky-app - версия
-// const getAllCats = function(api) {
-//     api.getAllCats().then((data)=> {
-//         console.log(data);
-//         if(data.message === "ok"){
-//         const parseddata = JSON.parse(JSON.stringify(data.data));
-//         {
-//             parseddata.forEach((cat) => {
-//                 createCat(cat)
-//             });
-//         }
-//         }
-//     })
-// }
-// getAllCats(api)
+
 
 //petite-web - версия
 
@@ -208,4 +194,18 @@ checkLocalStorage();
 
 
 
-
+//sb-heroky-app - версия
+// const getAllCats = function(api) {
+//     api.getAllCats().then((data)=> {
+//         console.log(data);
+//         if(data.message === "ok"){
+//         const parseddata = JSON.parse(JSON.stringify(data.data));
+//         {
+//             parseddata.forEach((cat) => {
+//                 createCat(cat)
+//             });
+//         }
+//         }
+//     })
+// }
+// getAllCats(api)

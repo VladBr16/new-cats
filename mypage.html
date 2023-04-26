@@ -15,7 +15,7 @@
     <body class = "page">
         <header class ="header">
             <div class = "container header__container">
-                <a href ="#" button onclick = "document.location ='index.html'" class = "logo"><i id ="facat" class ="fas fa-cat fa-2x"></i><span class ="cutecats">Пушистые и веселые котики</span></a>
+                <a href ="#" button onclick = "document.location ='index.html'"  class = "logo"><i id ="facat" class ="fas fa-cat fa-2x"></i><span class ="cutecats">Пушистые и веселые котики</span></a>
                 <button class ="btn" id="add"><i class="fa-solid fa-plus"></i></button>
                 <!-- <a class ="btn" href ="" id="enter">Войти</a> -->
                 <button class ="btn" href ="" id="enter">Мой аккаунт</a>
@@ -69,9 +69,6 @@
                 </form>
             </div>
         </div>
-        
-    
-        
         <div class = "popup popup-cat-info">
             <div class ="popup__container">
                 <button class = "popup__close btn popup__close_external"><i class ="fa-solid fa-xmark"></i></button>
@@ -88,38 +85,32 @@
         <div class ="enter__popup open-enter">
             <div class ="enter__container open-enter">
                 <div class ="enter-popup-close btn"><i class="fa-solid fa-xmark"></i></div>
-                <h2>Войти в аккаунт</h2>
+                <h2>Мой аккаунт</h2>
                 <form id ="login_form"  class= "form" id="enter-form-user">
-                <div class = "enter__image enter-image "></div>
-                    Login: <input type="text" class="form__input" placeholder ="hello" >
-                    Password: <input type="text" class="form__input" placeholder ="there">
-                    <input type="submit" id="log-in" class ="form__btn btn"value ="Войти">
+                <div class = "enter__image_enter-image" img src="././images/acc.jpg" alt="account"></div>
+                <h3> Выйти?</h3>
+                <a  button onclick = "document.location ='index.html'"href ="#" class ="clickHere">Да</a>
                 </form>
             </div>
             </div>
         </div>
         <!-- logOut -->
-        <div class ="logout__popup close-enter">
+        <!-- <div class ="logout__popup close-enter">
             <div class ="logout__container logout">
                 <div class ="logout_close btn"><i class="fa-solid fa-xmark"></i></div>
-                <h3> Добро пожаловать  !!!</h3>
+                <h3> Выйти?</h3>
+                <button onclick = "document.location ='index.html'" class ="clickHere">Да</button>
             </div>
-        </div> 
+        </div>  -->
         <!-- Форма удаления карточки -->
         <div class ="delete__popup delete-card">
             <div class ="delete__container">
                 <div class ="delete_close btn"><i class="fa-solid fa-xmark"></i></div>
-                <!-- <h2><i class="fa-sharp fa-solid fa-trash fa-2x""></i>Удалить карточку?</h2> -->
                 <h2><i class="fa-sharp fa-solid fa-trash fa-2x""></i>Карточка удалена!</h2>
                 <div class = "delete__image"></div>
-                <!-- <div class ="delete-btn-container">
-                    <button type ="btnDelete1" class="delete__btn btn" type ="button">Да</button>
-                    <button type ="btnDelete2" class="delete__btn btn" type ="button">Нет</button>
-                </div> -->
             </div>
         </div>
     </body> 
-    
     <!-- template cards -->
     <template id = "card-template">
         <div class="card">
@@ -155,18 +146,16 @@
         </div>
         <!-- scripts -->
         <script src = "./scripts/api.js" defer></script>
-        <script src = "./scripts/cats.js" defer></script>
+        <!-- <script src = "./scripts/cats.js" defer></script> -->
         <script src = "./scripts/utilis.js" defer></script>
         <script src = "./scripts/popup.js" defer></script>
         <script src = "./scripts/enterpopup.js" defer></script>
         <script src = "./scripts/deleteButton.js" defer></script>
         <script src = "./scripts/card.js" defer></script>
-        <script src = "./scripts/login.js" defer></script>
-        <script src = "./scripts/logout.js" defer></script>
+        <!-- <script src = "./scripts/login.js" defer></script> -->
+        <!-- <script src = "./scripts/logout.js" defer></script> -->
         <script src = "./scripts/popup-edit-cat.js" defer></script>
         <!-- <script src ="scripts/popup-image.js" defer></script> -->
         <!-- <script src = "scripts/cats-info.js" defer></script> -->
         <script src = "./scripts/index.js" defer></script>
-    </html>
-</body>
 </html>

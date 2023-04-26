@@ -51,6 +51,27 @@ h3{
     right: -40px;
     font-size: 30px;
 }
+.clickHere{
+    min-width: 30px;
+    height: 30px;
+    box-shadow: 0 0 2px 0 #0002;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a56317;
+    color: #f1f1f1;
+    border: none;
+    gap: 10px;
+    cursor: pointer;
+}
+.clickHere:hover{
+    background-color: gold;
+    border-radius:100px;
+    color: #a56317;
+    font-weight: bold;
+}
+
 
 /* ///////////// */
 /* .logout__popup{

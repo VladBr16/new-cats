@@ -1,35 +1,51 @@
 // авторизация с сохранением пароля\логина и всплытием попапа-приветствия
-const loginForm = document.getElementById("login_form");
-const login = loginForm.querySelector("input");
-const password = loginForm.querySelector("input + input")
+// const loginForm = document.getElementById("login_form");
+// const login = loginForm.querySelector("input");
+// const password = loginForm.querySelector("input + input")
 // const btntype = loginForm.querySelector("button")
 // const closeEnter = document.querySelector("#log-in");
-const closeLogin = document.querySelector(".close-enter")
+// const closeLogin = document.querySelector(".close-enter")
 
-if (localStorage.length != 0) {
-    login.value = localStorage.login 
-    password.value = localStorage.password
-}
+// if (localStorage.length != 0) {
+//     login.value = localStorage.login 
+//     password.value = localStorage.password
+// }
 
-loginForm.addEventListener("submit", ()=> {
-    localStorage.login = login.value;
-    localStorage.password = password.value;
-        if(login.value ==="hello" && password.value ==="there"){
-            // alert('General Kenobi');
-        const closeEnterPop = new Logout("close-enter");
-            closeEnterPop.open()
-            enterpopup.close()
-            setTimeout(() => {
-                closeEnterPop.close()
-            },2000);
-            closeEnterPop.setEventListener()
-            document.cookie = 'login = hello'
-            document.cookie = 'password = there'
-        }else if(login.value !=="hello" || password.value !=="there"){
-            alert('Неверный Логин/Пароль, используйте подсказку')
-            localStorage.clear()
-        }
-    })
+
+
+// loginForm.addEventListener("submit", (e)=>{
+//     e.preventDefault
+//     const closeEnterPop = new Logout("close-enter");
+//             closeEnterPop.open()
+//             enterpopup.close()
+//             setTimeout(() => {
+//                 closeEnterPop.close()
+//             });
+//             closeEnterPop.setEventListener()
+// })
+
+
+
+
+// loginForm.addEventListener("submit", ()=> {
+//     localStorage.login = login.value;
+//     localStorage.password = password.value;
+//         if(login.value ==="hello" && password.value ==="there"){
+//             // alert('General Kenobi');
+//         const closeEnterPop = new Logout("close-enter");
+//             closeEnterPop.open()
+//             enterpopup.close()
+//             setTimeout(() => {
+//                 closeEnterPop.close()
+//             },2000);
+//             closeEnterPop.setEventListener()
+//             document.cookie = 'login = hello'
+//             document.cookie = 'password = there'
+//         }else if(login.value !=="hello" || password.value !=="there"){
+//             alert('Неверный Логин/Пароль, используйте подсказку')
+//             localStorage.clear()
+//         }
+//     })
 
 
 

@@ -56,6 +56,15 @@
     box-shadow: 0 0 2px 0 #0004;
     
 }
+.enter__image_enter-image{
+    grid-row: span 2;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/images/acc.jpg") ;
+    border-radius: 90px;
+    box-shadow: 0 0 0px 0 #0004;
+}
 
 
 /* .enter__img {
