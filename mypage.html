@@ -18,7 +18,7 @@
                 <a href ="#" button onclick = "document.location ='index.html'"  class = "logo"><i id ="facat" class ="fas fa-cat fa-2x"></i><span class ="cutecats">Пушистые и веселые котики</span></a>
                 <button class ="btn" id="add"><i class="fa-solid fa-plus"></i></button>
                 <!-- <a class ="btn" href ="" id="enter">Войти</a> -->
-                <button class ="btn" href ="" id="enter">Мой аккаунт</a>
+                <button class ="btn" href ="" id="enter"><i class="fa-solid fa-user"></i>Мой аккаунт</a>
             </div>
         </header>
         <main class ="main container ">
@@ -118,17 +118,17 @@
             <a href="#" class="card__link"><h3 class = "card__name"> Бобик</h3></a>
             <button class="card__like" aria-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
             <button class="card__delete" id ="card_delete" aria-label="delete"><i class="fa solid fa-trash fa-2x"></i>
-            <button id ="edit" class="cat-info__edited"><i class="fa-regular fa-pen-to-square fa-2x"></i></button>
+            <!-- <button id ="edit" class="cat-info__change"><i class="fa-regular fa-pen-to-square fa-2x"></i></button> -->
         </div>
     </template>
         <!-- попап card-info -->
-        <div class="cats-info__popup cats-info-template">
+        <!-- <div class="cats-info__popup cats-info-template">
             <div class="cat-info__container">
                 <form class="form-edit-cat">
                     <button id ="change-info" class="edit-cat"><i class="fa-regular fa-pen-to-square"></i>Изменить</button>
                 <!-- <button class="cat-info__saved cat-info__saved_hidden"><i class="fa-regular fa-pen-to-square"></i>Сохранить</button>
                 <button class="cat-info__deleted"><i class="fa-solid fa-trash"></i>Удалить</button> -->
-                    <img src="#" class="cat-info__image" loading="lazy">
+                    <!-- <img src="#" class="cat-info__image" loading="lazy">
                     <span class="cat-info__id"></span>
                     <div class="cat-info__title">
                         <h2 class="cat-info__name"></h2>
@@ -143,19 +143,47 @@
                     
                 </form>
             </div>
+        </div> --> 
+        <!-- popupedit cards template -->
+
+        <template id ="cats-info-template">
+            <div class="cat-info__container">
+                <button class="cat-info__edited"><i class="fa-regular fa-pen-to-square"></i>Редактировать</button>
+                <button class="cat-info__saved cat-info__saved_hidden"><i class="fa-regular fa-pen-to-square"></i>Сохранить</button>
+                <button class="cat-info__deleted"><i class="fa-solid fa-trash"></i>Удалить</button>
+
+            <img src="#" class="cat-info__image" loading="lazy">
+            <span class="cat-info__id"></span>
+            <div class="cat-info__title">
+                <h2 class="cat-info__name"></h2>
+                <button class="cat-info__favourite"><i class="fa-solid fa-heart fa-2x"></i></button>
+            </div>
+            <span class="cat-info__rate"></span>
+            <div class="cat-info__age">
+                <span class="cat-info__age-val"></span>
+                <span class="cat-info__age-text"></span>
+            </div>
+                <p class="cat-info__desc"></p>
+            </div>
         </div>
+        </template>
+
         <!-- scripts -->
-        <script src = "./scripts/api.js" defer></script>
+        <!-- <script src = "./scripts/api.js" defer></script> -->
+
         <!-- <script src = "./scripts/cats.js" defer></script> -->
-        <script src = "./scripts/utilis.js" defer></script>
-        <script src = "./scripts/popup.js" defer></script>
-        <script src = "./scripts/enterpopup.js" defer></script>
-        <script src = "./scripts/deleteButton.js" defer></script>
-        <script src = "./scripts/card.js" defer></script>
+
+        <!-- <script src = "./scripts/utilis.js" defer></script> -->
+        <!-- <script src = "./scripts/popup.js" defer></script> -->
+        <!-- <script src = "./scripts/enterpopup.js" defer></script> -->
+
+        <!-- <script src = "./scripts/deleteButton.js" defer></script> -->
+        
+        <!-- <script src = "./scripts/card.js" defer></script> -->
         <!-- <script src = "./scripts/login.js" defer></script> -->
         <!-- <script src = "./scripts/logout.js" defer></script> -->
-        <script src = "./scripts/popup-edit-cat.js" defer></script>
+        
         <!-- <script src ="scripts/popup-image.js" defer></script> -->
         <!-- <script src = "scripts/cats-info.js" defer></script> -->
-        <script src = "./scripts/index.js" defer></script>
+        <script src = "./scripts/index.js" type ="module" ></script>
 </html>

@@ -1,4 +1,6 @@
 // авторизация с сохранением пароля\логина и всплытием попапа-приветствия
+// не испольузем
+
 // const loginForm = document.getElementById("login_form");
 // const login = loginForm.querySelector("input");
 // const password = loginForm.querySelector("input + input")

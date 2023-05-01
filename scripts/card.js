@@ -1,27 +1,47 @@
-// export 
-class Card {
+import { DeleteCardPopup } from "./deleteButton.js";
+import { api } from "./api.js";
+
+export class Card {
     constructor(data, 
         selectorTemplate, 
-        // handleCatTitle,
-        handleCatImage) {
+        handleCatTitle,
+        handleCatImage,
+        handleLikeCat
+        ) {
         this._data = data;
+        this._handleCatTitle = handleCatTitle;
         this._selectorTemplate = selectorTemplate;
-        // this._handleCatTitle = handleCatTitle;
         this._handleCatImage = handleCatImage;
-        // this._onClickToEdit = onClickToEdit;
+        this._handleLikeCard = handleLikeCat;
         }
-    _getTemplate() {//возвращает содержимое шаблона в виде дом узла
+    _getTemplate() {
         const elem = document.querySelector(this._selectorTemplate).content.querySelector(".card");
-        //узел - док.фрагмент - свойство контент
-        // документ фрагмент - легковесная версия нода элемент.
+        
         return elem;
     }
+
+    _updateViewLike(){
+        if(this._data.favorite) {
+            this.cardLike.classList.add("card__like_active")
+        } else {
+            this.cardLike.classList.remove("card__like_active")
+        }
+        
+    }
+    _setLikeCat = () => {
+        this._data.favorite = !this._data.favorite;
+        this.updateView();
+
+        this._handleLikeCard(this._data)
+    }
+
     getElement(){
         this.element = this._getTemplate().cloneNode(true);
         this.cardTitle = this.element.querySelector(".card__name");
         this.cardImage = this.element.querySelector(".card__image");
         this.cardLike = this.element.querySelector(".card__like");
-        
+        // this.cardDelete= this.element.querySelector(".card__delete");
+
         const cardDelete= this.element.querySelector(".card__delete");
         //  || this._data.img_link || this._data.card__image
         cardDelete.setAttribute('id',`btn-${this._data.id}`);
@@ -40,59 +60,38 @@ class Card {
         console.log('click')
         })
 
-         // popup-edited cat
-            //показать данные из апи, при нажатии изменить - изменить данные POST, добавить кнопку закрыть 
-        const popEdit = this.element.querySelector(".cat-info__edited")
-    
-        console.log(popEdit, "click")
-        popEdit.setAttribute('id',`btn-${this._data.id}`);
-        popEdit.addEventListener("click", (e)=>{
-            const popupEditCat = new PopupEditCat('cats-info-template')
-            popupEditCat.open()
-            {
-                api.updateCatById(this._data.id).then(() => {
-                    e.preventDefault();
-                    const elem2 = document.getElementById("change-info");
-                    console.log({ elem2 }), "change-info";
-                    elem2.parentElement.put();
-                    })
-            }
-            popupEditCat.setEventListener();
-            console.log("click")
-        })
-
-
-            if (!this._data.favorite) {
-                this.cardLike.classList.toggle("card__like_active");
-            }
-        
-            this.cardTitle.textContent = this._data.name;
-            this.cardImage.src = this._data.image;
-            console.log(this.cardImage)
+            this.updateView()
 
             this.setEventListener();
-            return this.element;;
+            return this.element;
         }
         
-        
-// убрал экспорты, вставил в карточку форму удаления изменив ее на форму редактирования. 
-
-
-        // getData () {
-        //     return this._data;
-        // }
-        // getId() {
-        //     return this._data.id;
-        // }
-        setElement(newData) {
+        getData () {
+            return this._data;
+        }
+        getId() {
+            return this._data.id;
+        }
+        setData(newData) {
             this._data = newData;
         }
-        
+
+        updateView() {
+            this.cardTitle.textContent = this._data.name;
+            this.cardImage.src = this._data.image;
+
+            this._updateViewLike()
+        }
+
+        deleteView() {
+            this.element.remove();
+            this.element = null;
+        }
         setEventListener(){
-            this.cardImage.addEventListener('click',() => this._handleCatImage(this._data));
-            // форма с пустой картинкой срабатывает если cardTitle включен, catImage не реагирует
-            // this.cardTitle.addEventListener('click',this._handleCatTitle());
-            // 
+            this.cardTitle.addEventListener('click',()=> this._handleCatTitle(this));
+            this.cardImage.addEventListener('click',()=> this._handleCatImage(this._data));
+            this.cardLike.addEventListener( "click", this._setLikeCat)
+            
         }
 }
 

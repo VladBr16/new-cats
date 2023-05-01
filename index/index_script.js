@@ -1,9 +1,4 @@
-// import {EnterPopup} from "./enterpopup.js"
-// import { Logout } from "./logout.js";
-// import { log_in } from "./login.js";
 
-
-// popup
 const btnEnter = document.querySelector("#enter")
 const enterpopup = new EnterPopup2("open-enter")
 
@@ -33,23 +28,6 @@ if (localStorage.length != 0) {
     login.value = localStorage.login 
     password.value = localStorage.password
 }
-
-
-
-
-// buttonEnter.addEventListener("buttonlog", ()=>{
-//     localStorage.login = login.value;
-//     localStorage.password = password.value;
-//     if(login.value ==="hello" && password.value ==="there"){
-//         const closeentPop = new Logout2("close-enter")
-//         closeentPop.open()
-//         console.log('hello')
-//     }
-//     alert('General Kenobi');
-//     buttonEnter.setEventListener()
-// })
-    
-
 
 // РАБОЧАЯ ВЕРСИЯ НЕ ТРОГАТЬ!
 document.getElementById("buttonlog").addEventListener("click", ()=>{
@@ -98,38 +76,6 @@ document.getElementById("buttonlog").addEventListener("click", ()=>{
 //         }
 //     })
     // enterpopup.close()
-// })
-// const btntype = loginForm.querySelector("button")
-// const closeEnter = document.querySelector("#log-in");
-// const closeLogin = document.querySelector(".close-enter")
-
-// if (localStorage.length != 0) {
-//     login.value = localStorage.login 
-//     password.value = localStorage.password
-// }
-
-
-//     enterpopup.setEventListener();
-//     loginForm.addEventListener("log-in", ()=> {
-// // localStorage.login = login.value;
-// // localStorage.password = password.value;
-//     if(login.value ==="hello" && password.value ==="there"){
-//     alert('General Kenobi');
-//     // const closeEnterPop = new Logout("close-enter");
-//     //     closeEnterPop.open()
-//     //     enterpopup.close()
-//         // window.open("page.html")
-//     // setTimeout(() => {
-//     //     closeEnterPop.close()
-//     // },2000);
-
-//     // closeEnterPop.setEventListener()
-//     document.cookie = 'login = hello'
-//     document.cookie = 'password = there'
-// }else if(login.value !=="hello" || password.value !=="there"){
-//     alert('Неверный Логин/Пароль, используйте подсказку')
-//     localStorage.clear()
-// }
 // })
 
     

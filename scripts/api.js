@@ -6,8 +6,7 @@ const CONFIG_API = {
 };
 // "https://cats.petiteweb.dev/api/single/brtjf"
 // "https://sb-cats.herokuapp.com/api/2/brtjf"
-// export
-class API {
+export class API {
     constructor(config) {
         this._url = config.url;
         this._headers = config.headers;
@@ -21,21 +20,21 @@ class API {
             method: "GET",
         }).then(this._onResponse);
     }
-    // getAllCatsId() {
-    //     /// отобразить все возможные айди котиков
-    //     return fetch(`${this._url}/ids`, {
-    //         method: "GET",
+    getAllCatsId() {
+        /// отобразить все возможные айди котиков
+        return fetch(`${this._url}/ids`, {
+            method: "GET",
             
-    //     }).then(this._onResponse);
-    // }
-    // getCatById(id) {
-    //     /// отобразить конкретного котика
-    //     return fetch(`${this._url}/show/${id}`, {
-    //         method: "GET",
-    //         headers: this._headers,
+        }).then(this._onResponse);
+    }
+    getCatById(id) {
+        /// отобразить конкретного котика
+        return fetch(`${this._url}/show/${id}`, {
+            method: "GET",
+            headers: this._headers,
             
-    //     }).then(this._onResponse);
-    // }
+        }).then(this._onResponse);
+    }
     addNewCat(body) {
         return fetch(`${this._url}/add`, {
             method: "POST",
@@ -58,5 +57,4 @@ class API {
     }
 }
 
-// export 
-const api = new API(CONFIG_API);
+export const api = new API(CONFIG_API);

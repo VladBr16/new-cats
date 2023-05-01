@@ -22,6 +22,7 @@
 }
 
 .popup__container {
+    width: 100%;
     max-width: 600px;
     background-color: var(--form-color);
     padding: 20px;

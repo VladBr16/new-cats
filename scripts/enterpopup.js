@@ -1,6 +1,5 @@
 // попап авторизации
-// export 
-class EnterPopup {
+export class EnterPopup {
   constructor(className2) {
     this.className2 = className2;
     this.enter = document.querySelector(`.${className2}`);

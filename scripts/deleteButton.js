@@ -1,6 +1,5 @@
 // попап удаления
-// export 
-class DeleteCardPopup {
+export class DeleteCardPopup {
     constructor(className3) {
         this.className3 = className3;
         this.deleteCard = document.querySelector(`.${className3}`);

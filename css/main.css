@@ -15,4 +15,5 @@
 @import url("./blocks/delete.css");
 @import url("./blocks/enter.css");
 @import url("./blocks/logout.css");
-@import url("./blocks/cat-info.css");
+/* @import url("./blocks/cat-info.css"); */
+@import url("./blocks/cats-info.css");

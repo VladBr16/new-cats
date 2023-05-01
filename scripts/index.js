@@ -1,13 +1,13 @@
 // 1.подключили тег карточек
-// import { Card } from "./card.js";
-// import { Popup } from "./popup.js";
-// import { PopupImage } from "./popup-image.js";
-// // import { CatsInfo } from "./cats-info.js";
-// import { api } from "./api.js";
-// // import { DeleteCardPopup } from "./deleteButton.js";
+import { Card } from "../scripts/card.js";
+import { Popup } from "../scripts/popup.js"
+import { PopupImage } from "../scripts/popup-image.js"; 
+import { CatInfo } from "../scripts/cats-info.js";
+import { api } from "../scripts/api.js";
+import { DeleteCardPopup } from "./deleteButton.js";
 // import { PopupEditCat } from "./popup-edit-cat.js";
-// import { serializeForm, setDataRefrash } from "./utilis.js";
-// import { EnterPopup } from "./enterpopup.js";
+import { serializeForm, setDataRefrash } from "../scripts/utilis.js";
+import { EnterPopup } from "../scripts/enterpopup.js";
 
 const cardsContainer = document.querySelector(".cards");
 const buttonPopOpen = document.querySelector("#add");
@@ -23,12 +23,16 @@ const enterpopup = new EnterPopup("open-enter")
 // const catsInfoInstance = new CatsInfo('#cats-info-template', handleDeleteCat);
 // const catsInfoElement = catsInfoInstance.getElement()
 //popup info-cats
+
+// const popupEditCat = new PopupEditCat('cats-info-template')
+// popupEditCat.open()
+// popupEditCat.setEventListener()
 // const popupCatInfo = new Popup("popup-cat-info");
 // popupCatInfo.setEventListener();
 
-// popup-edited cat
-// const popEdit = document.querySelector("#edit").content.querySelector("#edit")
-// const popupEditCat = new PopupEditCat('cats-info-template')
+// // popup-edited cat
+// // const popEdit = document.querySelector("#edit").content.querySelector("#edit")
+// // const popupEditCat = new PopupEditCat('cats-info-template')
 // popEdit.setEventListener();
 // popEdit.addEventListener("click", ()=>popupEditCat.open())
 
@@ -42,21 +46,35 @@ buttonPopOpen.addEventListener('click', () => popupAddCat.open());
 formAddCat.addEventListener('submit', handleFormAddCat);
 btnEnter.addEventListener("click", () => enterpopup.open());
 
+
+const popupCatInfo = new Popup("popup-cat-info");
+popupCatInfo.setEventListener()
+
+const popupCatImage = new PopupImage("popup-image");
+popupCatImage.setEventListener()
+
+const catsInfoInstance = new CatInfo(
+    "#cats-info-template",
+    handleEditCatInfo,
+    handleLikeCat,
+    handleDeleteCat 
+)
+
+const catsInfoElement = catsInfoInstance.getElement()
+
 function createCat(data) {
     const cardInstance = new Card(
         data,
         "#card-template", 
-        // handleCatTitle,
-        handleCatImage
+        handleCatTitle,
+        handleCatImage,
+        handleLikeCat
         );
         const newCardElement = cardInstance.getElement();
         cardsContainer.append(newCardElement);
+        // console.log(newCardElement)
 }
 
-// функция, которая будет вставлять данные из формы в темплейт,кот.создали
-// с данными из этой формы . Данные будут иметь те же
-// ключи, что и в массиве кэтс.дж// создали переменную cardInstance, которая 
-    // в себя вклчюает данные с конструктора 
 function handleFormAddCat(e) {
         e.preventDefault();
         const elementsFormCat = [...formAddCat.elements];
@@ -68,29 +86,51 @@ function handleFormAddCat(e) {
         })
     popupAddCat.close();
 }
-function handleCatImage(data){
-    popupImage.open(data)
-    console.log( "----->>>>> <<<<popupImage")
+function handleCatTitle(cardInstance){
+    catsInfoInstance.setData(cardInstance)
+    popupCatInfo.setContent(catsInfoElement)
+    popupCatInfo.open()
 }
-// function handleCatTitle(){
-//     console.log('click')
-//     popupCatInfo.open()
-// }
 
-// function handleDeleteCat(cardInstance) {
-//     api.deleteCatById(cardInstance.getId()).then(() => {
-//         cardInstance.deleteView();
-//         updateLocalStorage(cardInstance.getId(), {type: 'DELETE_CAT'});
-//         popupCatInfo.close();
-//     })
-// }
+function handleCatImage(dataCard){
+    popupCatImage.open(dataCard)
+    console.log( "----->>>>> <<<<popupCatImage")
+}
 
-// function handleCatTitle(cardInstance) {
-//     catsInfoInstance.setData(cardInstance);
-//     popupCatInfo.setContent(catsInfoElement);
-//     popupCatInfo.open();
-//     console.log(cardInstance, "cardinstance")
-// }
+function handleEditCatInfo(cardInstance, data) {
+    const {age, description, name, id} = data;
+
+    api.updateCatById(id, {age, description, name})
+        .then(() => {
+            cardInstance.setData(data);
+            cardInstance.updateView();
+
+            updateLocalStorage(data, {type: "EDIT_CAT"})
+            popupCatInfo.close()
+        })
+}
+
+function handleLikeCat(data){
+    const {id, favorite} = data;
+    api.updateCatById( id, {favorite})
+        .then(() => {
+            updateLocalStorage( data, {type: "EDIT_CAT"});
+            console.log("like has been changed")
+        })
+}
+
+function handleDeleteCat(cardInstance){
+    const deleteCardPopup = new DeleteCardPopup("delete-card");
+    deleteCardPopup.open();
+    popupCatInfo.close();{
+        api.deleteCatById(cardInstance.getId())
+        .then(() =>{
+            cardInstance.deleteView()
+            updateLocalStorage(cardInstance.getId(), {type: 'DELETE_CAT'})
+        })
+    }
+    deleteCardPopup.setEventListener();
+}
 
 function checkLocalStorage() {
     const localData = JSON.parse(localStorage.getItem('cats'));
@@ -109,6 +149,8 @@ function checkLocalStorage() {
         });
     }
 }
+
+
 
 function updateLocalStorage(data, action) { // {type: 'ADD_CATS} - функция обновления локал стоража
     const oldStorage = JSON.parse(localStorage.getItem('cats'));
@@ -135,63 +177,6 @@ function updateLocalStorage(data, action) { // {type: 'ADD_CATS} - функци�
     }
 }
 checkLocalStorage();
-
-// попап успешной авторизации
-// const closeEnter = document.querySelector("#log-in");
-// const closeEnterPop = new ClosePopup("close-enter");
-
-// closeEnter.addEventListener("click", () => closeEnterPop.open())
-
-// //удаление
-// const deleteButton = document.querySelector("#card_delete");
-// const closeDeleteButton = document.querySelector(".delete_close ")
-
-// document.body.appendChild(deleteButton.content);
-// const deleteCardPopup = new DeleteCardPopup("delete-card")
-
-// const formEditCat = document.querySelector('#popup-form-edit');
-// const popupEditCat = new Popup('popup-edit-cats');
-// popupEditCat.setEventListener();
-
-
-
-
-
-// создание карточки в отдельном js файле
-
-// api.getAllCats().then((data) => {
-//                 data.forEach((cat) => {
-//                     createCat(cat);
-//                 });
-//                 enterpopup.close()
-// })
-
-
-// попап удаление рабочее
-// deleteButton.addEventListener("click",function() {
-//     const deleteCardPopup = new DeleteCardPopup("delete-card");
-//     deleteCardPopup.open();
-//     deleteCardPopup.setEventListener();
-//     console.log('click')
-// })
-
-
-
-
-
-
-//petite-web - версия
-
-
-// function onClickToEdit(card, id) {
-//     console.log({ card, id });
-//     popupEditCat.setContent(card, id);
-//     popupEditCat.open();
-//   }
-
-
-
-
 
 
 //sb-heroky-app - версия
