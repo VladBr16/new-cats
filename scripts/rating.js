@@ -1,1 +1,1 @@
-export const MAX_RATE_CAT = 10
+export const RATE_CAT = 10

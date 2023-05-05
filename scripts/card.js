@@ -40,10 +40,9 @@ export class Card {
         this.cardTitle = this.element.querySelector(".card__name");
         this.cardImage = this.element.querySelector(".card__image");
         this.cardLike = this.element.querySelector(".card__like");
-        // this.cardDelete= this.element.querySelector(".card__delete");
 
         const cardDelete= this.element.querySelector(".card__delete");
-        //  || this._data.img_link || this._data.card__image
+        
         cardDelete.setAttribute('id',`btn-${this._data.id}`);
         cardDelete.addEventListener("click",(e) =>{
         const deleteCardPopup = new DeleteCardPopup("delete-card");

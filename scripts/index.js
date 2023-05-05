@@ -1,4 +1,4 @@
-// 1.подключили тег карточек
+
 import { Card } from "../scripts/card.js";
 import { Popup } from "../scripts/popup.js"
 import { PopupImage } from "../scripts/popup-image.js"; 
@@ -6,7 +6,7 @@ import { CatInfo } from "../scripts/cats-info.js";
 import { api } from "../scripts/api.js";
 import { DeleteCardPopup } from "./deleteButton.js";
 // import { PopupEditCat } from "./popup-edit-cat.js";
-import { serializeForm, setDataRefrash } from "../scripts/utilis.js";
+import { serializeForm, setDataRefresh } from "../scripts/utilis.js";
 import { EnterPopup } from "../scripts/enterpopup.js";
 
 const cardsContainer = document.querySelector(".cards");
@@ -19,26 +19,8 @@ const btnEnter = document.querySelector("#enter")
 const enterpopup = new EnterPopup("open-enter")
 
 
+// const formPictureInPopup = document.querySelector(".form__input_image")
 
-// const catsInfoInstance = new CatsInfo('#cats-info-template', handleDeleteCat);
-// const catsInfoElement = catsInfoInstance.getElement()
-//popup info-cats
-
-// const popupEditCat = new PopupEditCat('cats-info-template')
-// popupEditCat.open()
-// popupEditCat.setEventListener()
-// const popupCatInfo = new Popup("popup-cat-info");
-// popupCatInfo.setEventListener();
-
-// // popup-edited cat
-// // const popEdit = document.querySelector("#edit").content.querySelector("#edit")
-// // const popupEditCat = new PopupEditCat('cats-info-template')
-// popEdit.setEventListener();
-// popEdit.addEventListener("click", ()=>popupEditCat.open())
-
-
-// const popupImage = new PopupImage("popup-image");
-// popupImage.setEventListener();
 
 popupAddCat.setEventListener();
 enterpopup.setEventListener();
@@ -58,9 +40,9 @@ const catsInfoInstance = new CatInfo(
     handleEditCatInfo,
     handleLikeCat,
     handleDeleteCat 
-)
+);
 
-const catsInfoElement = catsInfoInstance.getElement()
+const catsInfoElement = catsInfoInstance.getElement();
 
 function createCat(data) {
     const cardInstance = new Card(
@@ -98,11 +80,15 @@ function handleCatImage(dataCard){
 }
 
 function handleEditCatInfo(cardInstance, data) {
-    const {age, description, name, id} = data;
+    const {age, description, name, id, image} = data;
 
-    api.updateCatById(id, {age, description, name})
+    api.updateCatById(id, {age, description, name, image})
         .then(() => {
             cardInstance.setData(data);
+            // const elemFormImg =[...formPictureInPopup.elements];
+            // const dataFromelemFormImg = changePictureInPopup(elemFormImg)
+            // const catChange = document.querySelector(".cat-info__image")
+            // catChange.addEventListener("click", dataFromelemFormImg)
             cardInstance.updateView();
 
             updateLocalStorage(data, {type: "EDIT_CAT"})
@@ -134,7 +120,7 @@ function handleDeleteCat(cardInstance){
 
 function checkLocalStorage() {
     const localData = JSON.parse(localStorage.getItem('cats'));
-    console.log({ localData });
+    // console.log({ localData });
     const getTimeExpires = localStorage.getItem('catsRefresh');
     if (localData && localData.length && new Date() < new Date(getTimeExpires)) {
         localData.forEach((data) => {
@@ -161,7 +147,7 @@ function updateLocalStorage(data, action) { // {type: 'ADD_CATS} - функци�
             return;
         case 'ALL_CATS':
             localStorage.setItem('cats', JSON.stringify(data));
-            setDataRefrash(5, 'catsRefrash');
+            setDataRefresh(5, 'catsRefrash');
             return;
         case 'DELETE_CAT':
             console.log('DELETE_CAT', data);
@@ -177,7 +163,7 @@ function updateLocalStorage(data, action) { // {type: 'ADD_CATS} - функци�
     }
 }
 checkLocalStorage();
-
+updateLocalStorage();
 
 //sb-heroky-app - версия
 // const getAllCats = function(api) {

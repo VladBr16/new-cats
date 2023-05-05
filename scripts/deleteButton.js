@@ -4,8 +4,6 @@ export class DeleteCardPopup {
         this.className3 = className3;
         this.deleteCard = document.querySelector(`.${className3}`);
         this._handleEscapeUp = this._handleEscapeUp.bind(this);
-        // console.log(this.deleteCard, 'deletfecard')
-        // console.log(className3, "className3")
     }
     _handleEscapeUp(event) {
         if (event.key === "Escape") {

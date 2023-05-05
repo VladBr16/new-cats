@@ -63,6 +63,7 @@ export class CatInfo {
         this.catDesc.contentEditable = !this.catDesc.isContentEditable;
         this.catName.contentEditable = !this.catName.isContentEditable;
         this.catAge.contentEditable = !this.catAge.isContentEditable;
+        this.catImage.contentEditable =!this.catImage.isContentEditable;
 
     }
 
@@ -72,6 +73,7 @@ export class CatInfo {
         this._data.name = this.catName.textContent;
         this._data.age = Number(this.catAge.textContent);
         this._data.description = this.catDesc.textContent;
+        this._data.src = this.catImage.src
         
         
 

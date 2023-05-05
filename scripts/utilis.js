@@ -1,4 +1,4 @@
-import { MAX_RATE_CAT } from "./rating.js";
+import { RATE_CAT } from "./rating.js";
 
 //функция, которая будет доставать value из разметки формы,
 // которую ввел пользвоатель
@@ -22,8 +22,18 @@ export function serializeForm(elements){
     console.log({formData});
     return formData;
 }
+// export function changePictureInPopup(elements){
+//     const picsFormData ={}
+//     elements.forEach((input) =>{
+//         if(input.type === "submit") return;
+//         if (input.type ==="url") {
+//                 formData[input.name] = input.image;
+//         }
+//         return picsFormData
+//     })
+// }
 
-export function setDataRefrash(minutes, key) { 
+export function setDataRefresh(minutes, key) { 
     const setTime = new Date(new Date().getTime() + minutes * 60000)
     localStorage.setItem(key, setTime);
 }
@@ -45,7 +55,7 @@ export const printNumerals = (number, titles) => {
 
 export function generateRating(rate) {
     const rateElements = [];
-    for(let i =0; i <MAX_RATE_CAT; i++){
+    for(let i =0; i <RATE_CAT; i++){
         if(i < rate && rate % 1 === 0){
             rateElements.push('<i class="fa-solid fa-shield-cat"></i>');
         }else if( i < Math.floor(rate) && rate % 1 !==0){

@@ -7,17 +7,17 @@ export class Popup {
         // закрытие с помощью эскейп
     _handleEscapeUp(event) {
         if(event.key === "Escape"){
-            this.close()
+            this.close();
         }
     }
         open() {
             this.popup.classList.add('popup_active');
-            document.addEventListener('keyup', this._handleEscapeUp)
+            document.addEventListener('keyup', this._handleEscapeUp);
     }
 
         close() {
             this.popup.classList.remove('popup_active');
-            document.removeEventListener("keyup", this._handleEscapeUp)
+            document.removeEventListener("keyup", this._handleEscapeUp);
     }
 
         setContent(contentNode) {

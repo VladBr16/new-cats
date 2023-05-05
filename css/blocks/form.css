@@ -28,12 +28,14 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--outline-color);
-    border-radius: 4px;
+    border-radius: 11px;
+    opacity: 0.5;
     padding: 8px 8px;
 }
 
 .form__input:focus {
     border: 1px solid var(--accent-color);
+    opacity: 1;
 }
 
 .form__fake-checkbox {
